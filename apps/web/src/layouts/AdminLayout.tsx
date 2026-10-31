@@ -62,9 +62,7 @@ export function AdminLayout() {
     { to: "/admin/discounts", label: "Discounts", icon: Percent },
     { to: "/admin/staff", label: "Staff Management", icon: Users },
     { to: "/admin/reports", label: "Finance Reports", icon: BarChart3 },
-  ];
-
-  return (
+  ];  return (
     <div className="min-h-screen flex bg-surface-page text-text-primary">
       {/* Sidebar */}
       <aside

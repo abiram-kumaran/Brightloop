@@ -18,8 +18,13 @@ export async function reportRoutes(app: FastifyInstance) {
     const activeSubsRes = await db.query(
       `SELECT
         COUNT(*)::int as active_count,
-        COALESCE(SUM(s.mrr_paise), 0)::bigint as total_mrr_paise
+        COALESCE(SUM(sub_totals.line_total), 0)::bigint as total_mrr_paise
        FROM subscriptions s
+       JOIN (
+         SELECT subscription_id, SUM(quantity * unit_price_paise) as line_total
+         FROM subscription_lines
+         GROUP BY subscription_id
+       ) sub_totals ON sub_totals.subscription_id = s.id
        WHERE s.status = 'active' AND s.deleted_at IS NULL`
     );
 
@@ -110,8 +115,8 @@ export async function reportRoutes(app: FastifyInstance) {
         i.id,
         i.number,
         i.customer_id,
-        c.name as customer_name,
-        c.email as customer_email,
+        c.company_name as customer_name,
+        c.contact_email as customer_email,
         i.issue_date,
         i.due_date,
         i.total_paise,

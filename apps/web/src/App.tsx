@@ -21,6 +21,7 @@ import { SubscriptionDetailPage } from "./pages/admin/SubscriptionDetailPage.js"
 import { InvoicesPage } from "./pages/admin/InvoicesPage.js";
 import { PaymentsPage } from "./pages/admin/PaymentsPage.js";
 import { ReportsPage } from "./pages/admin/ReportsPage.js";
+import { StaffPage } from "./pages/admin/StaffPage.js";
 import { PortalDashboardPage } from "./pages/portal/PortalDashboardPage.js";
 import { CustomerSubscriptionsPage } from "./pages/portal/CustomerSubscriptionsPage.js";
 import { CustomerInvoicesPage } from "./pages/portal/CustomerInvoicesPage.js";
@@ -88,7 +89,7 @@ export function App() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<ProductsPage />} />
+            <Route index element={<ReportsPage />} />
             <Route path="products" element={<ProductsPage />} />
             <Route path="plans" element={<PlansPage />} />
             <Route path="taxes" element={<TaxRulesPage />} />
@@ -99,6 +100,7 @@ export function App() {
             <Route path="invoices" element={<InvoicesPage />} />
             <Route path="payments" element={<PaymentsPage />} />
             <Route path="reports" element={<ReportsPage />} />
+            <Route path="staff" element={<StaffPage />} />
           </Route>
 
           {/* Staff Workspace */}

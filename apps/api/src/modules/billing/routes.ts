@@ -13,7 +13,7 @@ export async function billingRoutes(app: FastifyInstance) {
    * ======================================================================= */
   app.post(
     "/billing/run",
-    { preHandler: [requirePermission("billing:run")] },
+    { preHandler: [requirePermission("billing.run")] },
     async (request: FastifyRequest, reply: FastifyReply) => {
       const querySchema = z.object({
         asOfDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
@@ -216,7 +216,7 @@ export async function billingRoutes(app: FastifyInstance) {
    * ======================================================================= */
   app.post(
     "/payments",
-    { preHandler: [requirePermission("payments:create")] },
+    { preHandler: [requirePermission("payments.record")] },
     async (request: FastifyRequest, reply: FastifyReply) => {
       const db = await getDb();
       const user = request.user!;
@@ -336,7 +336,8 @@ export async function billingRoutes(app: FastifyInstance) {
         i.id as "invoiceId",
         i.number as "invoiceNumber",
         i.total_paise as "invoiceTotalPaise",
-        c.company_name as "customerName"
+        c.company_name as "customerName",
+        c.contact_email as "customerEmail"
       FROM payments p
       JOIN invoices i ON p.invoice_id = i.id
       JOIN customers c ON i.customer_id = c.id
