@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-cream: #F3EBE0;
+  --color-cream-soft: #F7F2EA;
+  --color-cream-deep: #EDE4D7;
+  --color-forest: #48584B;
+  --color-forest-dark: #303D33;
+  --color-ink: #323429;
+  --color-taupe: #C3B9B3;
+  --color-stone: #B7B0A9;
+  --color-coffee: #795F4E;
+  --color-coffee-dark: #553A2E;
+
+  --color-success: #3F7658;
+  --color-success-bg: #E6EFE7;
+  --color-warning: #A87532;
+  --color-warning-bg: #F5EBDD;
+  --color-danger: #A34F45;
+  --color-danger-bg: #F4E6E2;
+  --color-info: #536E80;
+  --color-info-bg: #E8EEF0;
+
+  --surface-page: var(--color-cream);
+  --surface-card: var(--color-cream-soft);
+  --surface-muted: var(--color-cream-deep);
+  --surface-dark: var(--color-forest-dark);
+
+  --text-primary: var(--color-ink);
+  --text-secondary: #716D64;
+  --text-muted: #918A80;
+  --text-inverse: #F7F2EA;
+
+  --border-default: #D8CEC1;
+  --border-subtle: #E7DED2;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--surface-page);
+  color: var(--text-primary);
+  font-family: "DM Sans", system-ui, sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}

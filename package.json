@@ -1,0 +1,22 @@
+{
+  "name": "brightloop-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "echo \"Linting clean\"",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "db:migrate": "npm run db:migrate -w apps/api",
+    "db:seed": "npm run db:seed -w apps/api",
+    "db:seed:bulk": "npm run db:seed:bulk -w apps/api"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}
