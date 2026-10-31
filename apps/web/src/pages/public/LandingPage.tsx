@@ -8,7 +8,6 @@ import {
   FileText,
   CreditCard,
   BarChart3,
-  Sparkles,
 } from "lucide-react";
 
 export function LandingPage() {
@@ -16,11 +15,6 @@ export function LandingPage() {
     <div className="flex flex-col gap-24 py-12 md:py-20">
       {/* Hero Section */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center gap-8">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-creamDeep border border-brand-taupe/40 text-xs font-medium text-brand-forest">
-          <Sparkles className="w-3.5 h-3.5 text-brand-coffee" />
-          <span>Warm Editorial Precision &bull; Odoo Makeaton Edition</span>
-        </div>
-
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight text-brand-ink leading-[1.05]">
           Subscriptions engineered with <span className="italic">quiet clarity</span>.
         </h1>
