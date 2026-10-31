@@ -240,12 +240,12 @@ export async function seedDemoData(): Promise<void> {
     custId: number, planId: number, status: string,
     startDate: string, anchorDay: number, nextInvoiceDate: string | null
   ): Promise<number> {
-    const closedAt = status === "closed" ? "now()" : null;
+    const closedAt = status === "closed" ? new Date().toISOString() : null;
     const res = await db.query<{ id: number }>(
       `INSERT INTO subscriptions
-         (customer_id,plan_id,payment_term_id,status,start_date,anchor_day,next_invoice_date,created_by)
-       VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id`,
-      [custId, planId, payTermId, status, startDate, anchorDay, nextInvoiceDate, adminId]
+         (customer_id,plan_id,payment_term_id,status,start_date,anchor_day,next_invoice_date,closed_at,created_by)
+       VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id`,
+      [custId, planId, payTermId, status, startDate, anchorDay, nextInvoiceDate, closedAt, adminId]
     );
     const subId = res.rows[0].id;
 
